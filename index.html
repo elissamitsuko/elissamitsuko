@@ -23,6 +23,12 @@
             --charcoal: #2c2c2c;
             --silver-text: #555;
         }
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right');
+  elements.forEach(el => el.classList.add('visible'));
+});
+</script>
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
