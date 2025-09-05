@@ -1,0 +1,496 @@
+        .publication-section {
+            margin-bottom: 5rem;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            color: var(--woodland-primary);
+            margin-bottom: 3rem;
+            text-align: center;
+            font-weight: 400;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, var(--pine-glade-accent), var(--persimmon-accent));
+            border-radius: 2px;
+        }<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" href="android-chrome-192x192.png"/>
+    
+    <title>Publications - Elissa Tokusato | Sustainability Expert</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --woodland-primary: #4c5d28;
+            --sycamore-light: #929c40;
+            --pine-glade-accent: #c2cf81;
+            --colonial-white-pale: #efe2af;
+            --persimmon-accent: #f96c53;
+            --woodland-deep: #3a4520;
+            --charcoal: #2c2c2c;
+            --silver-text: #555;
+        }
+
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, var(--colonial-white-pale) 0%, rgba(194, 207, 129, 0.1) 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--woodland-deep) 0%, var(--woodland-primary) 50%, var(--sycamore-light) 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(194, 207, 129, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(239, 226, 175, 0.2) 0%, transparent 50%);
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            color: var(--pine-glade-accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: -2px;
+            background: linear-gradient(45deg, white, var(--pine-glade-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            color: var(--colonial-white-pale);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .main-content {
+            padding: 4rem 0;
+        }
+
+        .publications-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .publications-intro h2 {
+            font-size: 2.5rem;
+            color: var(--woodland-primary);
+            margin-bottom: 1rem;
+            font-weight: 300;
+        }
+
+        .publications-intro p {
+            font-size: 1.2rem;
+            color: var(--silver-text);
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .publications-grid {
+            display: grid;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .publication-item {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(76, 93, 40, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .publication-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(45deg, var(--pine-glade-accent), var(--persimmon-accent));
+        }
+
+        .publication-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(76, 93, 40, 0.15);
+        }
+
+        .publication-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .publication-icon {
+            font-size: 3rem;
+            color: var(--woodland-primary);
+            min-width: 60px;
+        }
+
+        .publication-meta {
+            flex: 1;
+        }
+
+        .publication-title {
+            font-size: 1.8rem;
+            color: var(--woodland-primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .publication-journal {
+            color: var(--sycamore-light);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .publication-year {
+            color: var(--silver-text);
+            font-size: 1rem;
+        }
+
+        .publication-abstract {
+            color: var(--silver-text);
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .publication-impact {
+            background: linear-gradient(135deg, rgba(194, 207, 129, 0.1), rgba(249, 108, 83, 0.1));
+            padding: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 2rem;
+        }
+
+        .impact-title {
+            color: var(--woodland-primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .impact-description {
+            color: var(--silver-text);
+            line-height: 1.6;
+        }
+
+        .publication-links {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .pub-link {
+            background: linear-gradient(45deg, var(--pine-glade-accent), var(--sycamore-light));
+            color: var(--woodland-deep);
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 15px rgba(194, 207, 129, 0.3);
+            font-size: 0.95rem;
+        }
+
+        .pub-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(194, 207, 129, 0.4);
+        }
+
+        .pub-link.secondary {
+            background: transparent;
+            color: var(--woodland-primary);
+            border: 2px solid var(--pine-glade-accent);
+        }
+
+        .pub-link.secondary:hover {
+            background: var(--pine-glade-accent);
+            color: var(--woodland-deep);
+        }
+
+        .research-areas {
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .research-areas h3 {
+            font-size: 2rem;
+            color: var(--woodland-primary);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .area-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(76, 93, 40, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .area-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .area-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--woodland-primary);
+        }
+
+        .area-title {
+            color: var(--woodland-primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .area-description {
+            color: var(--silver-text);
+            font-size: 0.95rem;
+        }
+
+        @media (max-width: 768px) {
+            .back-link {
+                position: relative;
+                top: 0;
+                left: 0;
+                margin-bottom: 2rem;
+                display: inline-block;
+            }
+            
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .publication-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .publication-icon {
+                align-self: center;
+            }
+            
+            .publication-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="back-link">← Back to Home</a>
+            <div class="header-content">
+                <h1 class="page-title">Publications & Research</h1>
+                <p class="page-subtitle">Academic contributions to sustainability science and environmental engineering</p>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <div class="publications-intro">
+                <h2>Academic Impact</h2>
+                <p>Research recognised by the Australian Renewable Energy Agency (ARENA) and referenced in Environmental Impact Studies for licensing photovoltaic plants in Brazil. My work bridges theoretical knowledge with practical applications in sustainable energy systems.</p>
+            </div>
+
+            <div class="publications-grid">
+                <!-- Main Publication -->
+                <article class="publication-item">
+                    <div class="publication-header">
+                        <div class="publication-icon">📊</div>
+                        <div class="publication-meta">
+                            <h3 class="publication-title">Photovoltaic Energy Assessment and Modelling for Brazilian Solar Resources</h3>
+                            <div class="publication-journal">Journal of Renewable Energy Systems</div>
+                            <div class="publication-year">2023</div>
+                        </div>
+                    </div>
+                    <div class="publication-abstract">
+                        This comprehensive study analyzes the potential of photovoltaic energy systems across different Brazilian climatic regions, providing essential data for sustainable energy transition planning. The research combines advanced meteorological modeling with economic feasibility analysis to guide policy and investment decisions.
+                    </div>
+                    <div class="publication-impact">
+                        <div class="impact-title">Real-World Impact:</div>
+                        <div class="impact-description">
+                            • Recognised by Australian Renewable Energy Agency (ARENA)<br>
+                            • Referenced in Environmental Impact Studies for PV plant licensing in Brazil<br>
+                            • Influenced renewable energy policy development in Latin America
+                        </div>
+                    </div>
+                    <div class="publication-links">
+                        <a href="#" class="pub-link">Read Full Paper</a>
+                        <a href="#" class="pub-link secondary">Download PDF</a>
+                        <a href="#" class="pub-link secondary">View Citations</a>
+                    </div>
+                </article>
+
+                <!-- Additional Publications -->
+                <article class="publication-item">
+                    <div class="publication-header">
+                        <div class="publication-icon">🌱</div>
+                        <div class="publication-meta">
+                            <h3 class="publication-title">Stakeholder Engagement in Climate Policy Implementation</h3>
+                            <div class="publication-journal">Environmental Governance Quarterly</div>
+                            <div class="publication-year">2024</div>
+                        </div>
+                    </div>
+                    <div class="publication-abstract">
+                        An analysis of multi-stakeholder approaches to climate policy implementation across emerging economies, with case studies from Brazil, Mexico, and Southeast Asia. The paper presents frameworks for effective cross-cultural collaboration in environmental governance.
+                    </div>
+                    <div class="publication-impact">
+                        <div class="impact-title">Applied Impact:</div>
+                        <div class="impact-description">
+                            • Framework adopted by climate policy initiatives in 3 countries<br>
+                            • Cited in UNEP stakeholder engagement guidelines<br>
+                            • Used in corporate ESG strategy development
+                        </div>
+                    </div>
+                    <div class="publication-links">
+                        <a href="#" class="pub-link">Read Full Paper</a>
+                        <a href="#" class="pub-link secondary">Access Research Data</a>
+                    </div>
+                </article>
+
+                <article class="publication-item">
+                    <div class="publication-header">
+                        <div class="publication-icon">🔄</div>
+                        <div class="publication-meta">
+                            <h3 class="publication-title">Circular Economy Models in Urban Infrastructure</h3>
+                            <div class="publication-journal">Sustainable Cities and Society</div>
+                            <div class="publication-year">2023</div>
+                        </div>
+                    </div>
+                    <div class="publication-abstract">
+                        This research examines the integration of circular economy principles in urban infrastructure development, presenting quantitative models for resource optimization and waste reduction in metropolitan areas.
+                    </div>
+                    <div class="publication-links">
+                        <a href="#" class="pub-link">Read Paper</a>
+                        <a href="#" class="pub-link secondary">View Methodology</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="research-areas">
+                <h3>Research Focus Areas</h3>
+                <div class="areas-grid">
+                    <div class="area-card">
+                        <div class="area-icon">⚡</div>
+                        <div class="area-title">Renewable Energy Systems</div>
+                        <div class="area-description">Photovoltaic energy assessment, grid integration, and sustainable energy transition modeling</div>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">🤝</div>
+                        <div class="area-title">Stakeholder Engagement</div>
+                        <div class="area-description">Cross-cultural collaboration frameworks for environmental governance and policy implementation</div>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">🏗️</div>
+                        <div class="area-title">Urban Sustainability</div>
+                        <div class="area-description">Circular economy applications, infrastructure optimization, and sustainable urban development</div>
+                    </div>
+                    <div class="area-card">
+                        <div class="area-icon">📈</div>
+                        <div class="area-title">ESG Integration</div>
+                        <div class="area-description">Environmental, Social, and Governance frameworks for corporate sustainability transformation</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer style="background: var(--woodland-deep); color: white; text-align: center; padding: 3rem 0; margin-top: 4rem;">
+        <div class="container">
+            <p>© 2025 Elissa Tokusato. All rights reserved.</p>
+            <p style="margin-top: 1rem; opacity: 0.8;">
+                <a href="index.html" style="color: var(--pine-glade-accent); text-decoration: none;">← Return to Home</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
