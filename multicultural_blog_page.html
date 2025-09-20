@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" type="image/png" href="android-chrome-192x192.png"/>
+    
+    <title>When 20 Countries Meet in One Classroom | Elissa Tokusato</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --woodland-primary: #4c5d28;
+            --sycamore-light: #929c40;
+            --pine-glade-accent: #c2cf81;
+            --colonial-white-pale: #efe2af;
+            --persimmon-accent: #f96c53;
+            --woodland-deep: #3a4520;
+            --charcoal: #2c2c2c;
+            --silver-text: #555;
+            --light-bg: #fafafa;
+        }
+
+        body {
+            font-family: 'Nunito Sans', sans-serif;
+            line-height: 1.6;
+            color: var(--charcoal);
+            background: var(--light-bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--woodland-deep) 0%, var(--woodland-primary) 50%, var(--sycamore-light) 100%);
+            color: white;
+            padding: 2rem 0;
+            position: relative;
+        }
+
+        .back-nav {
+            margin-bottom: 2rem;
+        }
+
+        .back-nav a {
+            color: var(--pine-glade-accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .back-nav a:hover {
+            color: white;
+        }
+
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+            background: linear-gradient(45deg, white, var(--pine-glade-accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            color: var(--colonial-white-pale);
+            margin-bottom: 1rem;
+        }
+
+        .article-meta {
+            color: var(--pine-glade-accent);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .article-content {
+            background: white;
+            padding: 4rem 3rem;
+            margin: -3rem auto 4rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(76, 93, 40, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .disclaimer {
+            background: rgba(194, 207, 129, 0.1);
+            border-left: 4px solid var(--pine-glade-accent);
+            padding: 1rem 1.5rem;
+            margin-bottom: 3rem;
+            border-radius: 0 10px 10px 0;
+            font-style: italic;
+            color: var(--silver-text);
+        }
+
+        .article-content h2 {
+            color: var(--woodland-primary);
+            font-size: 2rem;
+            margin: 3rem 0 1.5rem 0;
+            font-weight: 600;
+            position: relative;
+        }
+
+        .article-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(45deg, var(--pine-glade-accent), var(--persimmon-accent));
+            border-radius: 2px;
+        }
+
+        .article-content h3 {
+            color: var(--woodland-primary);
+            font-size: 1.4rem;
+            margin: 2rem 0 1rem 0;
+            font-weight: 600;
+        }
+
+        .article-content p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .pull-quote {
+            background: linear-gradient(135deg, var(--colonial-white-pale), rgba(194, 207, 129, 0.3));
+            border-left: 5px solid var(--persimmon-accent);
+            padding: 2rem;
+            margin: 3rem 0;
+            border-radius: 0 15px 15px 0;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--woodland-deep);
+            position: relative;
+        }
+
+        .pull-quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--persimmon-accent);
+            position: absolute;
+            top: -10px;
+            left: 15px;
+            opacity: 0.7;
+        }
+
+        .cultural-dimensions {
+            background: white;
+            border: 2px solid var(--colonial-white-pale);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 3rem 0;
+        }
+
+        .cultural-dimensions h3 {
+            color: var(--woodland-primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .dimension-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid var(--pine-glade-accent);
+        }
+
+        .dimension-title {
+            font-weight: 700;
+            color: var(--woodland-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .dimension-description {
+            color: var(--silver-text);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .example-box {
+            background: rgba(239, 226, 175, 0.3);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-left: 4px solid var(--sycamore-light);
+        }
+
+        .example-box h4 {
+            color: var(--woodland-primary);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .team-showcase {
+            background: linear-gradient(135deg, rgba(194, 207, 129, 0.1), rgba(239, 226, 175, 0.2));
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .team-showcase p {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--woodland-deep);
+        }
+
+        .closing-reflection {
+            background: var(--woodland-deep);
+            color: white;
+            padding: 3rem;
+            border-radius: 20px;
+            margin: 4rem 0 3rem 0;
+            text-align: center;
+        }
+
+        .closing-reflection p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            margin-bottom: 0;
+        }
+
+        .article-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--colonial-white-pale);
+            margin-top: 3rem;
+        }
+
+        .nav-link {
+            color: var(--woodland-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--sycamore-light);
+        }
+
+        footer {
+            background: var(--woodland-deep);
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.2rem;
+            }
+            
+            .article-content {
+                padding: 2rem 1.5rem;
+                margin: -2rem auto 3rem;
+            }
+            
+            .article-content h2 {
+                font-size: 1.6rem;
+            }
+            
+            .pull-quote {
+                padding: 1.5rem;
+                margin: 2rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="article-container">
+            <div class="back-nav">
+                <a href="index.html">← Back to Home</a>
+            </div>
+            <h1 class="hero-title">When 20 Countries Meet in One Classroom</h1>
+            <p class="hero-subtitle">Lessons from a Master's Program Across Four Nations</p>
+            <div class="article-meta">Published by Elissa Tokusato • Personal Reflections</div>
+        </div>
+    </header>
+
+    <main>
+        <div class="article-container">
+            <article class="article-content">
+                <div class="disclaimer">
+                    <strong>Disclaimer:</strong> This article represents personal views and reflections from my educational experience.
+                </div>
+
+                <p>I studied a Master's across four countries—Portugal, Ireland, Poland, and Austria—together with 25 people from 20 different nationalities. It looks like it's the dream: you get to study and travel at the same time! But we had many misunderstandings between each other and with the professors, including a fight in the first month out of the two years together. A heated one, the type with pointing fingers, calling names, standing up, turning and leaving without a word—like a soap opera.</p>
+
+                <p>The experience became very stressful and frustrating to both students and professors. Some of those misunderstandings, I believe, might have been avoided by recognizing some multicultural communication differences from the start of the programme.</p>
+
+                <div class="team-showcase">
+                    <p>Imagine a group with a Brazilian political scientist, a Syrian dentist, a Ghanaian finance man and reverend, a Mexican designer, an Albanese-Italian economist, a Kyrgh linguist, an American-Bulgarian environmental scientist, a Finnish-German artist, a Venezuelan coach, and so on, with an age range from early 20s to 40s.</p>
+                </div>
+
+                <p>This diverse group was formed based on the idea of transdisciplinarity and the premise that diversity implies innovation.</p>
+
+                <p>With no basics of multicultural preparation, we were brought together, possibly under the expectation that something brilliant would just pop up from there. However, accommodation insecurity, financial stress and health issues, enhanced by a lack of basic institutional support, affected all of us.</p>
+
+                <div class="pull-quote">
+                    Diversity may lead to innovation only when physiological and psychological safety are ensured.
+                </div>
+
+                <p>We tried many times to do what we could to maintain harmony. After our first disagreement, we held a "conflict management" meeting, with volunteered moderators and some good rules of communication. Although some important hints on inter-cultural communication were shared by some, we ended up with no resolution, more frustrated, and afraid of being rude to one another – like walking on eggshells.</p>
+
+                <p>It was only a year later that I found a framework that helped me better understand myself and my colleagues. It is a book called <em>Culture Map</em>, from Erin Meyer, borrowed by a friend from the same cohort.</p>
+
+                <h2>The Eight Cultural Scales</h2>
+                <p><em>From The Culture Map by Erin Meyer</em></p>
+
+                <div class="culture-map-visual" style="text-align: center; margin: 2rem 0 3rem 0;">
+                    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAwIiBoZWlnaHQ9IjQ1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8IS0tIEJhY2tncm91bmQgLS0+CiAgPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0iIzRjNWQyOCIvPgogIDx0ZXh0IHg9IjMwMCIgeT0iMjI1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSJ3aGl0ZSIgZm9udC1mYW1pbHk9Ik51bml0byBTYW5zIiBmb250LXNpemU9IjE2Ij4KICAgIEN1bHR1cmFsIFJlbGF0aXZpdHkgQ2hhcnQ8L3RleHQ+CiAgPHRleHQgeD0iMzAwIiB5PSIyNTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IndoaXRlIiBmb250LWZhbWlseT0iTnVuaXRvIFNhbnMiIGZvbnQtc2l6ZT0iMTQiPgogICAgKEltYWdlIHRvIGJlIHVwbG9hZGVkKTwvdGV4dD4KPC9zdmc+" 
+                         alt="Cultural Relativity Chart showing how USA, Germany, Japan, and China compare across the eight cultural dimensions" 
+                         style="max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 10px 30px rgba(76, 93, 40, 0.2);">
+                </div>
+
+                <div class="cultural-dimensions">
+                    <p>Erin Meyer's model highlights eight dimensions where cultures often differ. These aren't rigid categories but spectrums that can help explain why communication or collaboration styles vary around the world.</p>
+                    
+                    <div class="dimension-item">
+                        <div class="dimension-title">1. Communicating: Low-context vs. High-context</div>
+                        <div class="dimension-description">
+                            • Low-context cultures value direct, explicit communication<br>
+                            • High-context cultures rely on implicit messages, shared understanding, and non-verbal cues
+                        </div>
+                    </div>
+
+                    <div class="example-box">
+                        <h4>My Experience: The Interrupted Presentation</h4>
+                        <p>My German-Finnish friend was presenting to the class when a Venezuelan colleague interrupted with a question. I felt he was rather brusque, perhaps even a bit rude, when he cut off the question to stay focused on his planned presentation. Later, I (Brazilian) shared my perception with him and with another German friend. Both disagreed with me; they saw no problem and felt his reaction wasn't rude at all.</p>
+                        
+                        <p>However, when I brought it up with my Indian and Latin American friends, they not only agreed with me but felt strongly about how inappropriate the interruption seemed.</p>
+                        
+                        <p>On the other hand, my German friend would feel frustrated for a lack of clarity from others: "Why can't they just say what they mean?", she'd think, and I could understand and empathise with her too. From her, I learned to have more courage to be honest and assertive, which also helped me navigating jobs in Ireland later on.</p>
+                        
+                        <p>These are simple but common examples of how low-context communication mismatch. No one was left too traumatised from these types of interactions.</p>
+                    </div>
+
+                    <div class="dimension-item">
+                        <div class="dimension-title">2. Evaluating: Direct negative feedback vs. Indirect negative feedback</div>
+                        <div class="dimension-description">
+                            • Some cultures give blunt, candid criticism<br>
+                            • Others cushion feedback to preserve harmony
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <h4>Opening a Can of Worms</h4>
+                    <p>In an attempt to improve a situation, I opened a can of worms. In Poland, half of my classmates were not attending one of the courses because of frictions with a professor. I brought this to light to the coordinator, who was Polish, to try to improve our relationships. Brazilians, in general, care a lot to not hurt others' feelings and to come across as friendly. The conversation with him was friendly and open, but the effect was exactly the opposite.</p>
+                    
+                    <p>The reason for the frictions was, among other things, because some cultures encourage open debate, while others try their maximum to avoid it. Cultures of open debate show their engagement and interest by asking questions and challenging your ideas. On the other hand, cultures that are avoidant think of it as a sign of disrespect and challenge to their authority.</p>
+                    
+                    <p>The next day, all classmates received a heavy emotional email from the professor saying that we accused them being repressive, although I have never used this word when giving the feedback. As no one knew where exactly the reason for receiving that email, I had to tell the entire class that it was probably because I gave feedback to the coordinator the day before.</p>
+                    
+                    <p>So, for the first and probably only time during the two years, almost everyone voluntarily shared their thoughts, perception and feelings about the current semester in Poland. Even the ones who didn't usually speak up. Although we didn't agree on anything, I think that holding the space was a win. It was also interesting to see how times of "crisis" reveals who embraces the collective and who is worried to save their own skin.</p>
+                    
+                    <p>And back to the feedback style, to be honest, I don't think that giving a direct feedback or no feedback at all would work any better. But I like to believe that we all, professor, coordinator and students, tried our best, and Polish and Brazilians can be more similar than we think.</p>
+                </div>
+
+                <div class="cultural-dimensions">
+                    <div class="dimension-item">
+                        <div class="dimension-title">3. Persuading: Principles-first vs. Applications-first</div>
+                        <div class="dimension-description">
+                            • Principles-first cultures emphasize theory before practice<br>
+                            • Applications-first cultures focus on practical examples and concrete cases
+                        </div>
+                    </div>
+
+                    <div class="dimension-item">
+                        <div class="dimension-title">4. Leading: Egalitarian vs. Hierarchical</div>
+                        <div class="dimension-description">
+                            • Egalitarian cultures see leaders as equals<br>
+                            • Hierarchical cultures expect clear authority and rank distinctions
+                        </div>
+                    </div>
+
+                    <div class="dimension-item">
+                        <div class="dimension-title">5. Deciding: Consensual vs. Top-down</div>
+                        <div class="dimension-description">
+                            • In consensual cultures, decisions are collective<br>
+                            • In top-down cultures, leaders make the call
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example-box">
+                    <h4>The Conference: Finding a Way Forward</h4>
+                    <p>The whole cohort had to work together to deliver a conference, and we couldn't agree between two approaches: disruptive or business-as-usual. The first one was bold and innovative, while the second one could present higher chances of getting a job after graduating, and they didn't seem to be able to merge. I was in the management group of the conference, convinced by my own colleagues who saw me as a mid-field player, so I had to find a way forward.</p>
+                    
+                    <p>Because there was no hierarchy and everything had to be consensual, taking decisions took much more energy and a really long time. This could've been frustrating to some friends who valued agility, myself included. I proposed an excel sheet where everyone could anonymously add their feedback on the proposal and comment on other's ideas. Then, in a meeting, I added a third column of "final say" for each idea. We went through each idea and comment in a meeting that lasted about three hours. Before this meeting, though, I had a chat with each "key" person on the teams to understand their views and build common ground between them.</p>
+                    
+                    <p>In the end, we delivered a 2-day conference with participants from all over the world and a secured financing from EU to pay for the digital platforms and offer a benefit to our expert speaker guests.</p>
+                </div>
+
+                <div class="cultural-dimensions">
+                    <div class="dimension-item">
+                        <div class="dimension-title">6. Trusting: Task-based vs. Relationship-based</div>
+                        <div class="dimension-description">
+                            • Task-based cultures build trust through performance and reliability<br>
+                            • Relationship-based cultures build trust through personal connection
+                        </div>
+                    </div>
+
+                    <div class="dimension-item">
+                        <div class="dimension-title">7. Disagreeing: Confrontational vs. Avoids confrontation</div>
+                        <div class="dimension-description">
+                            • Some cultures encourage open debate<br>
+                            • Others prefer to sidestep open conflict
+                        </div>
+                    </div>
+
+                    <div class="dimension-item">
+                        <div class="dimension-title">8. Scheduling: Linear-time vs. Flexible-time</div>
+                        <div class="dimension-description">
+                            • Linear-time cultures value punctuality, deadlines, and structured agendas<br>
+                            • Flexible-time cultures view schedules as adaptable and fluid
+                        </div>
+                    </div>
+                </div>
+
+                <div class="closing-reflection">
+                    <p>In Buddhism we say our lives are like diamonds, and one diamond can only be polished by another diamond. We need this contact and sometimes frictions with each other to make our lives shine even brighter. To all my friends, colleagues, professors, I know some situations were incredibly frustrating, and I know that you probably have different views from the stories I shared here, but I am grateful for having learned so much from each one of you.</p>
+                </div>
+
+                <div class="article-nav">
+                    <a href="index.html" class="nav-link">← Back to Home</a>
+                    <a href="#" class="nav-link">Next Article →</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer>
+        <p>© 2025 Elissa Tokusato. All rights reserved.</p>
+    </footer>
+</body>
+</html>
