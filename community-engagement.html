@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Google Fonts - Similar to Square's typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <title>Community Engagement | Elissa Tokusato</title>
+    
+    <style>
+        /* High Contrast Sustainability Palette */
+        :root {
+            /* Primary Colors - High Contrast */
+            --forest-deep: #1a3d2e;
+            --forest-primary: #2d5a3d;
+            --sage-green: #4a7c59;
+            --vibrant-leaf: #6b9b47;
+            --persimmon: #d35400;
+            
+            /* Neutrals */
+            --pure-white: #ffffff;
+            --deep-charcoal: #2c3e50;
+            --medium-gray: #7f8c8d;
+            --soft-gray: #f8f9fa;
+            --border-gray: #dee2e6;
+            
+            /* Semantic Colors */
+            --text-primary: var(--forest-deep);
+            --text-secondary: var(--deep-charcoal);
+            --text-muted: var(--medium-gray);
+            --bg-primary: var(--pure-white);
+            --bg-secondary: var(--soft-gray);
+            --accent-primary: var(--vibrant-leaf);
+            --accent-secondary: var(--sage-green);
+            --warning: var(--persimmon);
+            
+            /* Typography */
+            --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            
+            /* Spacing - Generous like Square */
+            --spacing-xs: 8px;
+            --spacing-sm: 16px;
+            --spacing-md: 24px;
+            --spacing-lg: 48px;
+            --spacing-xl: 80px;
+            --spacing-2xl: 120px;
+            
+            /* Layout */
+            --max-width: 1200px;
+            --border-radius: 12px;
+            --border-radius-lg: 20px;
+            
+            /* Shadows with nature theme */
+            --shadow-sm: 0 2px 8px rgba(26, 61, 46, 0.08);
+            --shadow-md: 0 4px 20px rgba(26, 61, 46, 0.12);
+            --shadow-lg: 0 8px 32px rgba(26, 61, 46, 0.16);
+        }
+
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-primary);
+        }
+
+        /* Layout containers */
+        .container {
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        .container-wide {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+
+        /* Typography - Square-style */
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-md);
+        }
+
+        h2 {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+
+        h4 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
+        .large-text {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Navigation - Clean and minimal */
+        .navbar {
+            background: var(--bg-primary);
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid var(--border-gray);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-link {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--text-primary);
+        }
+
+        /* Hero section - Nature-inspired with high contrast */
+        .hero {
+            padding: var(--spacing-2xl) 0;
+            background: linear-gradient(135deg, var(--forest-deep) 0%, var(--forest-primary) 100%);
+            color: var(--pure-white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(107, 155, 71, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(74, 124, 89, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            margin-bottom: var(--spacing-md);
+            color: var(--pure-white);
+        }
+
+        .hero .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        /* Buttons - Square-inspired */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 16px 32px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: var(--border-radius);
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+            min-height: 56px;
+        }
+
+        .btn-primary {
+            background: var(--accent-primary);
+            color: var(--pure-white);
+        }
+
+        .btn-primary:hover {
+            background: var(--vibrant-leaf);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--pure-white);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--pure-white);
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-gray);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--accent-primary);
+            background: var(--accent-primary);
+            color: var(--pure-white);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn-group {
+            display: flex;
+            gap: var(--spacing-sm);
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Stats section */
+        .stats-section {
+            padding: var(--spacing-xl) 0;
+            background: var(--bg-secondary);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            text-align: center;
+        }
+
+        .stat-item {
+            padding: var(--spacing-md);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-primary);
+            line-height: 1;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* Feature sections */
+        .section {
+            padding: var(--spacing-2xl) 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto var(--spacing-xl) auto;
+        }
+
+        /* Card layouts - Nature-inspired */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .card {
+            background: var(--bg-primary);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border-gray);
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--accent-secondary);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-primary);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: var(--spacing-md);
+            color: var(--pure-white);
+        }
+
+        .card h3 {
+            margin-bottom: var(--spacing-sm);
+        }
+
+        .card h4 {
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .card p {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* Speaking engagement cards */
+        .engagement-card {
+            background: var(--bg-primary);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            border: 1px solid var(--border-gray);
+            transition: all 0.2s ease;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .engagement-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--accent-secondary);
+        }
+
+        .engagement-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: var(--spacing-sm);
+            flex-wrap: wrap;
+            gap: var(--spacing-sm);
+        }
+
+        .engagement-title {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .engagement-date {
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .engagement-venue {
+            color: var(--accent-primary);
+            font-weight: 600;
+            margin-bottom: var(--spacing-xs);
+        }
+
+        .engagement-type {
+            display: inline-block;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: var(--spacing-sm);
+        }
+
+        /* Two-column layouts */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: start;
+        }
+
+        /* Timeline styles */
+        .timeline {
+            position: relative;
+            padding-left: var(--spacing-lg);
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border-gray);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: var(--spacing-lg);
+            background: var(--bg-primary);
+            padding: var(--spacing-md);
+            border-radius: var(--border-radius);
+            border: 1px solid var(--border-gray);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: var(--spacing-md);
+            width: 12px;
+            height: 12px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            border: 3px solid var(--bg-primary);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--forest-deep) 0%, var(--forest-primary) 100%);
+            color: var(--pure-white);
+            padding: var(--spacing-2xl) 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 70%, rgba(107, 155, 71, 0.2) 0%, transparent 60%);
+            pointer-events: none;
+        }
+
+        .cta-section h2 {
+            color: var(--pure-white);
+            margin-bottom: var(--spacing-md);
+        }
+
+        .cta-section .subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .btn-white {
+            background: var(--pure-white);
+            color: var(--text-primary);
+        }
+
+        .btn-white:hover {
+            background: var(--bg-secondary);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--bg-secondary);
+            padding: var(--spacing-xl) 0 var(--spacing-lg) 0;
+            border-top: 1px solid var(--border-gray);
+        }
+
+        .footer-content {
+            text-align: center;
+            color: var(--text-muted);
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .container, .container-wide {
+                padding: 0 var(--spacing-sm);
+            }
+            
+            .two-column {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+            
+            .nav-links {
+                display: none;
+            }
+            
+            .btn-group {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .engagement-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .timeline {
+                padding-left: var(--spacing-md);
+            }
+            
+            .timeline-item::before {
+                left: -24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">Elissa Tokusato</a>
+            <ul class="nav-links">
+                <li><a href="index.html#impact" class="nav-link">Impact</a></li>
+                <li><a href="index.html#experience" class="nav-link">Experience</a></li>
+                <li><a href="#community" class="nav-link">Community</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Building sustainable communities</h1>
+                <p class="subtitle">Leading conversations that drive collective action on climate change and sustainable development across industries and continents.</p>
+                <div class="btn-group">
+                    <a href="#speaking" class="btn btn-primary">Speaking engagements</a>
+                    <a href="#leadership" class="btn btn-secondary">Leadership roles</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">25+</div>
+                    <div class="stat-label">Speaking engagements</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Board positions</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Professionals mentored</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15</div>
+                    <div class="stat-label">Countries reached</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Impact Areas -->
+    <section id="community" class="section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Areas of community impact</h2>
+                <p class="large-text">From executive education to youth mentorship, I'm committed to building capacity for sustainable transformation at every level.</p>
+            </div>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <div class="initiative-image">
+                        <img src="keynote-speaking.jpg" alt="Keynote Speaking" style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--border-radius); margin-bottom: var(--spacing-md);">
+                    </div>
+                    <div class="card-icon">🎤</div>
+                    <h3>Keynote speaking</h3>
+                    <p>Delivering insights on climate finance, ESG integration, and sustainable business transformation to executive audiences worldwide.</p>
+                    <div style="margin-top: var(--spacing-md);">
+                        <a href="https://linkedin.com/in/elissa-tokusato" class="btn btn-outline">Follow updates</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="initiative-image">
+                        <img src="executive-education.jpg" alt="Executive Education" style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--border-radius); margin-bottom: var(--spacing-md);">
+                    </div>
+                    <div class="card-icon">🎓</div>
+                    <h3>Executive education</h3>
+                    <p>Designing and delivering sustainability curricula for business schools and corporate leadership programs across multiple continents.</p>
+                    <div style="margin-top: var(--spacing-md);">
+                        <a href="https://twitter.com/sustainability_edu" class="btn btn-outline">@sustainability_edu</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="initiative-image">
+                        <img src="mentorship-program.jpg" alt="Professional Mentorship" style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--border-radius); margin-bottom: var(--spacing-md);">
+                    </div>
+                    <div class="card-icon">👥</div>
+                    <h3>Professional mentorship</h3>
+                    <p>Guiding emerging sustainability professionals through career transitions and skill development in climate finance and ESG.</p>
+                    <div style="margin-top: var(--spacing-md);">
+                        <a href="https://instagram.com/climatecareerspath" class="btn btn-outline">@climatecareerspath</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="initiative-image">
+                        <img src="board-leadership.jpg" alt="Board Leadership" style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--border-radius); margin-bottom: var(--spacing-md);">
+                    </div>
+                    <div class="card-icon">🏛️</div>
+                    <h3>Board leadership</h3>
+                    <p>Serving on advisory boards and committees to drive strategic sustainability initiatives in both private and non-profit sectors.</p>
+                    <div style="margin-top: var(--spacing-md);">
+                        <a href="https://linkedin.com/company/sustainable-governance" class="btn btn-outline">Learn more</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="initiative-image">
+                        <img src="youth-development.jpg" alt="Youth Development" style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--border-radius); margin-bottom: var(--spacing-md);">
+                    </div>
+                    <div class="card-icon">🌱</div>
+                    <h3>Youth development</h3>
+                    <p>Supporting next-generation leaders through university partnerships, internship programs, and emerging professional networks.</p>
+                    <div style="margin-top: var(--spacing-md);">
+                        <a href="https://twitter.com/nextgenclimateleaders" class="btn btn-outline">@nextgenclimateleaders</a>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="initiative-image">
+                        <img src="global-collaboration.jpg" alt="Global Collaboration" style="width: 100%; height: 200px; object-fit: cover; border-radius: var(--border-radius); margin-bottom: var(--spacing-md);">
+                    </div>
+                    <div class="card-icon">🌍</div>
+                    <h3>Global collaboration</h3>
+                    <p>Facilitating cross-border knowledge exchange and building bridges between developed and emerging market sustainability practices.</p>
+                    <div style="margin-top: var(--spacing-md);">
+                        <a href="https://instagram.com/globalclimatebridge" class="btn btn-outline">@globalclimatebridge</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contact" class="cta-section">
+        <div class="container">
+            <h2>Let's build sustainable communities together</h2>
+            <p class="subtitle">Whether you're looking for a keynote speaker, advisory expertise, or mentorship opportunities, I'm here to collaborate.</p>
+            <div class="btn-group">
+                <a href="mailto:elissamitsuko@hotmail.com" class="btn btn-white">Get in touch</a>
+                <a href="index.html" class="btn btn-secondary" style="color: white; border-color: rgba(255,255,255,0.3);">Back to main site</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Elissa Tokusato. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
